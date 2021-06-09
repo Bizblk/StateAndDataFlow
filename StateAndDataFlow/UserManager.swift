@@ -5,9 +5,16 @@
 //  Created by Alexey Efimov on 08.06.2021.
 //
 
-import Combine
+import SwiftUI
 
 class UserManger: ObservableObject {
-    @Published var isRegister = false
-    var name = ""
+    
+    @AppStorage("userName") var userName = ""
+    @AppStorage("logIn") var logIn = false
+    
+    
+    func logOut() {
+        userName = ""
+        logIn = false
+    }
 }

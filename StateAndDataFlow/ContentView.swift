@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Hi, \(user.name)!")
+            Text("Hi, \(user.userName)!")
                 .font(.largeTitle)
                 .offset(x: 0, y: 100)
             Text("\(timer.counter)")
@@ -22,8 +22,10 @@ struct ContentView: View {
             Spacer()
             ButtonView(timer: timer)
             Spacer()
+            LogOutButton(action: user.logOut)
+            Spacer()
         }
-            
+        
     }
 }
 

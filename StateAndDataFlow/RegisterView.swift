@@ -17,7 +17,7 @@ struct RegisterView: View {
                 TextField("Enter your name", text: $name)
                     .multilineTextAlignment(.center)
                 Text("\(name.count)")
-                    .foregroundColor(charCountColor())
+                    .foregroundColor(name.count < 3 ? .gray : .green)
             }.padding()
             
             Button(action: registerUser) {
@@ -30,20 +30,10 @@ struct RegisterView: View {
     }
     private func registerUser() {
         if !name.isEmpty {
-            user.name = name
-            user.isRegister.toggle()
+            user.userName = name
+            user.logIn.toggle()
         }
     }
-    
-    private func charCountColor() -> Color {
-        if name.count > 2 {
-            return Color.green
-        } else {
-            return Color.gray
-        }
-    }
-    
-    
 }
 
 struct RegisteredView_Previews: PreviewProvider {
